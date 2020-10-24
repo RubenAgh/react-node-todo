@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import AddTodo from './components/AddTodo.js';
+import Loader from './components/Loader';
 import { useHttp } from './hooks/http.hook';
 import { Context } from './contexts/context';
 import { TodoList } from './components/TodoList';
@@ -9,7 +10,7 @@ import './App.css';
 function App() {
   const [todos, setTodos] = useState([]);
   const [title, setTitle] = useState('')
-  const { request } = useHttp();
+  const { request, loading } = useHttp();
 
   useEffect(() => {
     (async () => {
@@ -37,9 +38,20 @@ function App() {
             setTitle={setTitle}
           />
 
-          <TodoList 
-            todos={todos}
-          />
+          {
+            loading ? (
+              <div className="loader-container">
+                <Loader />
+              </div>
+            ) : (
+              <>
+                <TodoList 
+                  todos={todos}
+                />
+              </>
+            )
+          }
+
         </div>
       </div>
     </Context.Provider>

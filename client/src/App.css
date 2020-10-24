@@ -12,3 +12,9 @@
   flex-direction: column;
   width: 80%;
 }
+
+.loader-container {
+  display: flex; 
+  justify-content: center; 
+  margin-top: 32px;
+}
