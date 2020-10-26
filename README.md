@@ -2,7 +2,6 @@
 
 # For running project
 # 1. npm install
-# 2. npm run start
-# 3. cd client
-# 4. npm install
-# 5. npm start
+# 2. npm run client:install
+# 3. npm run start
+# 4. npm run client
